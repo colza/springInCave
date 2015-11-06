@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       <bean id="person" class="com.mysample.Person">
+              <constructor-arg value="John" name="name"></constructor-arg>
+              <constructor-arg value="123" name="id"></constructor-arg>
+              <property name="taxId">
+                     <value>11234</value>
+              </property>
+              <property name="address" ref="address">
+              </property>
+       </bean>
+
+       <bean id="address" class="com.mysample.Address">
+              <constructor-arg value="Garden road" name="street"></constructor-arg>
+              <constructor-arg value="SE4" name="postcode"></constructor-arg>
+       </bean>
+</beans>
