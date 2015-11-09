@@ -1,19 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-       <bean id="person" class="com.mysample.Person">
-              <constructor-arg value="John" name="name"></constructor-arg>
-              <constructor-arg value="123" name="id"></constructor-arg>
-              <property name="taxId">
-                     <value>11234</value>
-              </property>
-              <property name="address" ref="address">
-              </property>
-       </bean>
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       <!--<bean id="person" class="com.mysample.Person" factory-method="getInstance">-->
+              <!--<constructor-arg value="John" name="name"></constructor-arg>-->
+              <!--<constructor-arg value="123" name="id"></constructor-arg>-->
+              <!--<property name="taxId">-->
+                     <!--<value>5000000</value>-->
+              <!--</property>-->
+              <!--<property name="address" ref="address">-->
+              <!--</property>-->
+       <!--</bean>-->
 
-       <bean id="address" class="com.mysample.Address">
-              <constructor-arg value="Garden road" name="street"></constructor-arg>
-              <constructor-arg value="SE4" name="postcode"></constructor-arg>
+       <!--<bean id="person2" class="com.mysample.Person" factory-bean="personFactory" factory-method="createPerson">-->
+              <!--<constructor-arg value="Mary" name="name"></constructor-arg>-->
+              <!--<constructor-arg value="456" name="id"></constructor-arg>-->
+              <!--<property name="taxId">-->
+                     <!--<value>11234</value>-->
+              <!--</property>-->
+              <!--<property name="address" ref="address">-->
+              <!--</property>-->
+       <!--</bean>-->
+
+       <!--<bean id="personFactory" class="com.mysample.beans.PersonFactory">-->
+
+       <!--</bean>-->
+       <!--<bean id="address2" class="com.mysample.Address">-->
+
+       <!--</bean>-->
+
+       <!--<bean id="address" class="com.mysample.Address">-->
+              <!--<constructor-arg value="abcdefg" name="street"></constructor-arg>-->
+              <!--<constructor-arg value="SE4" name="postcode"></constructor-arg>-->
+       <!--</bean>-->
+
+       <!--<bean id="mapJungle" class="com.mysample.beans.MapJungle">-->
+              <!--<property name="foods">-->
+                     <!--<props>-->
+                            <!--<prop key="Gorilla">banana</prop>-->
+                            <!--<prop key="Gorilla1">banana1</prop>-->
+                            <!--<prop key="Gorilla2">banana2</prop>-->
+                     <!--</props>-->
+              <!--</property>-->
+       <!--</bean>-->
+       <!--<bean id="fruitBasket" class="com.mysample.beans.FruitBasket">-->
+              <!--<constructor-arg value="fruitName"></constructor-arg>-->
+              <!--<constructor-arg>-->
+                     <!--<list>-->
+                            <!--<value>apple</value>-->
+                            <!--<value>apple2</value>-->
+                            <!--<value>apple3</value>-->
+                            <!--<value>apple4</value>-->
+                            <!--<value>apple5</value>-->
+                     <!--</list>-->
+              <!--</constructor-arg>-->
+       <!--</bean>-->
+
+       <!--<bean id="logger" class="com.mysample.Logger">-->
+       <!--</bean>-->
+       <!--<bean id="consoleWriter1" class="com.mysample.ConsoleWriter">-->
+              <!--<constructor-arg value="console1"></constructor-arg>-->
+       <!--</bean>-->
+
+       <!--<bean id="consoleWriter2" class="com.mysample.ConsoleWriter">-->
+              <!--<constructor-arg value="console2"></constructor-arg>-->
+              <!--<qualifier value="console2_qualifier"></qualifier>-->
+       <!--</bean>-->
+
+       <!--<bean id="fileWriterB" class="com.mysample.FileWriter">-->
+
+       <!--</bean>-->
+
+       <!--<bean id="fileWriterA" class="com.mysample.FileWriter">-->
+
+       <!--</bean>-->
+
+       <!--<bean id="fileWriter2" class="com.mysample.FileWriter2">-->
+
+       <!--</bean>-->
+
+       <context:component-scan base-package="com.mysample"></context:component-scan>
+       <context:annotation-config></context:annotation-config>
+       <context:property-placeholder location="classpath:com/mysample/props/jdbc.properties"></context:property-placeholder>
+
+       <bean id="person" class="com.mysample.Person">
+
+              <property name="name" value="${name}"/>
        </bean>
 </beans>

@@ -1,8 +1,15 @@
 package com.mysample;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+import javax.inject.Inject;
+
 /**
  * Created by QuentinTsai on 06/11/15.
  */
+
+@Component("myperson123")
 public class Person {
     private int id;
     private String name;
@@ -14,7 +21,26 @@ public class Person {
         this.name = name;
     }
 
-    public void setTaxId(int taxId) {
+    public Person() {
+    }
+
+    public static Person getInstance(int id, String name){
+        System.out.println("Factory");
+        Person person = new Person(id, name);
+        return person;
+    }
+
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Inject
+    public void setTaxId(@Value(value = "123")int taxId) {
         this.taxId = taxId;
     }
 
